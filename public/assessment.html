@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Assessment | CalmSteps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="assessment">
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container nav-bar">
+        <a href="index.html" class="brand">
+          <span class="brand-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+          <span>
+            <strong>CalmSteps</strong>
+            <small>Child Well-being Tracker</small>
+          </span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="features.html">Features</a>
+          <a href="assessment.html">Assessment</a>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="contact.html">Contact</a>
+          <a href="auth.html" class="button small auth-link">Login / Register</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="inner-page">
+      <section class="page-banner">
+        <div class="container">
+          <span class="section-tag">Interactive assessment</span>
+          <h1>Complete a more structured child well-being check-in</h1>
+          <p>Think about the last 2 weeks and rate how often each concern was seen at home, in school, during routines, or in social settings.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container assessment-layout">
+          <div class="card">
+            <div class="inline-note" id="assessmentAuthNotice"></div>
+
+            <div class="assessment-intro">
+              <div>
+                <span class="section-tag">How to answer</span>
+                <h2>Use one consistent scale for every question</h2>
+                <p>Each question measures concern level. A score of 1 means the issue was not really observed. A score of 5 means it appeared often and had a strong impact.</p>
+              </div>
+              <div class="scale-guide">
+                <span>1 Never / not observed</span>
+                <span>2 Rarely</span>
+                <span>3 Sometimes</span>
+                <span>4 Often</span>
+                <span>5 Nearly every day / severe</span>
+              </div>
+            </div>
+
+            <form id="assessmentForm" class="form-grid">
+              <div class="form-group full-width">
+                <label for="childSelect">Select Child</label>
+                <select id="childSelect" name="childId" required>
+                  <option value="">Choose a child profile</option>
+                </select>
+                <small class="field-error"></small>
+              </div>
+
+              <div class="question-card">
+                <label for="mood">Persistent Sadness or Loss of Interest</label>
+                <select id="mood" name="mood" required>
+                  <option value="">Select</option>
+                  <option value="1">1 - Not observed</option>
+                  <option value="2">2 - Rarely observed</option>
+                  <option value="3">3 - Sometimes observed</option>
+                  <option value="4">4 - Often observed</option>
+                  <option value="5">5 - Nearly every day / severe</option>
+                </select>
+                <p class="question-hint">Notice sadness, flat mood, or reduced enjoyment in usual play and activities.</p>
+                <small class="field-error"></small>
+              </div>
+
+              <div class="question-card">
+                <label for="worry">Worry, Fear, or Clinginess</label>
+                <select id="worry" name="worry" required>
+                  <option value="">Select</option>
+                  <option value="1">1 - Not observed</option>
+                  <option value="2">2 - Rarely observed</option>
+                  <option value="3">3 - Sometimes observed</option>
+                  <option value="4">4 - Often observed</option>
+                  <option value="5">5 - Nearly every day / severe</option>
+                </select>
+                <p class="question-hint">Think about excessive worry, strong fear, avoidance, or needing unusual reassurance.</p>
+                <small class="field-error"></small>
+              </div>
+
+              <div class="question-card">
+                <label for="irritability">Irritability or Emotional Outbursts</label>
+                <select id="irritability" name="irritability" required>
+                  <option value="">Select</option>
+                  <option value="1">1 - Not observed</option>
+                  <option value="2">2 - Rarely observed</option>
+                  <option value="3">3 - Sometimes observed</option>
+                  <option value="4">4 - Often observed</option>
+                  <option value="5">5 - Nearly every day / severe</option>
+                </select>
+                <p class="question-hint">Rate anger, reactivity, low frustration tolerance, or intense emotional escalation.</p>
+                <small class="field-error"></small>
+              </div>
+
+              <div class="question-card">
+                <label for="sleep">Sleep or Energy Problems</label>
+                <select id="sleep" name="sleep" required>
+                  <option value="">Select</option>
+                  <option value="1">1 - Not observed</option>
+                  <option value="2">2 - Rarely observed</option>
+                  <option value="3">3 - Sometimes observed</option>
+                  <option value="4">4 - Often observed</option>
+                  <option value="5">5 - Nearly every day / severe</option>
+                </select>
+                <p class="question-hint">Include trouble sleeping, frequent waking, oversleeping, or low daytime energy.</p>
+                <small class="field-error"></small>
+              </div>
+
+              <div class="question-card">
+                <label for="concentration">Trouble Focusing or Learning</label>
+                <select id="concentration" name="concentration" required>
+                  <option value="">Select</option>
+                  <option value="1">1 - Not observed</option>
+                  <option value="2">2 - Rarely observed</option>
+                  <option value="3">3 - Sometimes observed</option>
+                  <option value="4">4 - Often observed</option>
+                  <option value="5">5 - Nearly every day / severe</option>
+                </select>
+                <p class="question-hint">Consider schoolwork, daily routines, listening, task completion, and mental restlessness.</p>
+                <small class="field-error"></small>
+              </div>
+
+              <div class="question-card">
+                <label for="social">Social Withdrawal</label>
+                <select id="social" name="social" required>
+                  <option value="">Select</option>
+                  <option value="1">1 - Not observed</option>
+                  <option value="2">2 - Rarely observed</option>
+                  <option value="3">3 - Sometimes observed</option>
+                  <option value="4">4 - Often observed</option>
+                  <option value="5">5 - Nearly every day / severe</option>
+                </select>
+                <p class="question-hint">Notice reduced play, avoiding peers, staying alone more, or pulling away from usual activities.</p>
+                <small class="field-error"></small>
+              </div>
+
+              <div class="question-card full-width">
+                <label for="functioning">Impact on Daily Functioning at Home or School</label>
+                <select id="functioning" name="functioning" required>
+                  <option value="">Select</option>
+                  <option value="1">1 - No meaningful impact</option>
+                  <option value="2">2 - Rare mild impact</option>
+                  <option value="3">3 - Sometimes harder to manage</option>
+                  <option value="4">4 - Often affecting routines or participation</option>
+                  <option value="5">5 - Severe impact on daily life</option>
+                </select>
+                <p class="question-hint">This question helps the score become more practical by measuring whether concerns are affecting routines, learning, participation, or relationships.</p>
+                <small class="field-error"></small>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="notes">Observation Notes</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Add recent triggers, teacher feedback, home changes, peer concerns, or patterns you want to remember..."></textarea>
+              </div>
+
+              <div class="form-actions full-width">
+                <button type="submit" class="button primary">Submit Assessment</button>
+                <div class="message-box" id="assessmentMessage"></div>
+              </div>
+            </form>
+          </div>
+
+          <aside class="card result-card" id="assessmentResultCard">
+            <span class="section-tag">Assessment result</span>
+            <h3>Result summary will appear here</h3>
+            <div class="result-metrics">
+              <article>
+                <small>Score</small>
+                <strong id="resultScore">--</strong>
+              </article>
+              <article>
+                <small>Risk Level</small>
+                <strong id="resultRisk">--</strong>
+              </article>
+            </div>
+            <div class="alert-box hidden" id="highRiskAlert"></div>
+            <p id="resultRecommendation">Complete an assessment to generate a recommendation.</p>
+            <div class="focus-list" id="resultFactors"></div>
+            <div class="disclaimer-box">
+              <i class="fa-solid fa-circle-info"></i>
+              <p>This observation-based screen supports follow-up and tracking. It does not replace professional mental health evaluation or emergency help.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div>
+          <strong>CalmSteps</strong>
+          <p>Helping caregivers notice, understand, and respond with care.</p>
+        </div>
+        <p>&copy; <span id="year"></span> CalmSteps Prototype</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/assessment.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Register | CalmSteps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="auth">
+  <div class="page-shell auth-page-shell">
+    <header class="site-header">
+      <div class="container nav-bar">
+        <a href="index.html" class="brand">
+          <span class="brand-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+          <span>
+            <strong>CalmSteps</strong>
+            <small>Child Well-being Tracker</small>
+          </span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="features.html">Features</a>
+          <a href="assessment.html">Assessment</a>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="contact.html">Contact</a>
+          <a href="auth.html" class="button small auth-link">Login / Register</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="auth-main">
+      <div class="container auth-layout">
+        <section class="auth-intro">
+          <span class="section-tag">Secure caregiver access</span>
+          <h1>Log in to manage assessments and child progress</h1>
+          <p>Register as a parent, teacher, or counselor to create child profiles and securely submit well-being records.</p>
+          <div class="hero-badges">
+            <span><i class="fa-solid fa-lock"></i> Protected access</span>
+            <span><i class="fa-solid fa-id-card"></i> Role-based accounts</span>
+            <span><i class="fa-solid fa-database"></i> Mongo-ready storage</span>
+          </div>
+        </section>
+
+        <section class="card auth-card">
+          <div class="auth-tabs">
+            <button class="tab-button active" data-tab="login">Login</button>
+            <button class="tab-button" data-tab="register">Register</button>
+          </div>
+
+          <div class="message-box" id="authMessage"></div>
+
+          <form id="loginForm" class="tab-panel active">
+            <div class="form-group">
+              <label for="loginEmail">Email Address</label>
+              <input type="email" id="loginEmail" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="button primary full-width">Login</button>
+          </form>
+
+          <form id="registerForm" class="tab-panel">
+            <div class="form-group">
+              <label for="registerName">Full Name</label>
+              <input type="text" id="registerName" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="registerEmail">Email Address</label>
+              <input type="email" id="registerEmail" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="registerRole">Role</label>
+              <select id="registerRole" name="role" required>
+                <option value="Parent">Parent</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Counselor">Counselor</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="registerPassword">Password</label>
+              <input type="password" id="registerPassword" name="password" placeholder="Minimum 6 characters" required>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat your password" required>
+            </div>
+            <button type="submit" class="button primary full-width">Create Account</button>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

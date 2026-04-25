@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/app.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "server/app.js"
+    },
+    {
+      "src": "/about",
+      "dest": "public/about.html"
+    },
+    {
+      "src": "/features",
+      "dest": "public/features.html"
+    },
+    {
+      "src": "/assessment",
+      "dest": "public/assessment.html"
+    },
+    {
+      "src": "/dashboard",
+      "dest": "public/dashboard.html"
+    },
+    {
+      "src": "/contact",
+      "dest": "public/contact.html"
+    },
+    {
+      "src": "/auth",
+      "dest": "public/auth.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "public/$1",
+      "check": true
+    },
+    {
+      "src": "/",
+      "dest": "public/index.html"
+    }
+  ]
+}

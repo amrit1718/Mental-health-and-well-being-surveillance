@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features | CalmSteps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="features">
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container nav-bar">
+        <a href="index.html" class="brand">
+          <span class="brand-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+          <span>
+            <strong>CalmSteps</strong>
+            <small>Child Well-being Tracker</small>
+          </span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="features.html">Features</a>
+          <a href="assessment.html">Assessment</a>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="contact.html">Contact</a>
+          <a href="auth.html" class="button small auth-link">Login / Register</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="inner-page">
+      <section class="page-banner">
+        <div class="container">
+          <span class="section-tag">Platform features</span>
+          <h1>Designed for calm observation, not complicated workflows</h1>
+          <p>The prototype combines a child-friendly interface with practical tools for monitoring, risk awareness, and decision support.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="card-grid three">
+            <article class="card feature-card">
+              <i class="fa-solid fa-clipboard-question"></i>
+              <h3>Interactive Assessment</h3>
+              <p>Evaluate sadness, worry, irritability, sleep, concentration, social withdrawal, and daily functioning.</p>
+            </article>
+            <article class="card feature-card">
+              <i class="fa-solid fa-circle-check"></i>
+              <h3>Live Form Validation</h3>
+              <p>Beginner-friendly JavaScript validation helps users submit complete and accurate data.</p>
+            </article>
+            <article class="card feature-card">
+              <i class="fa-solid fa-chart-column"></i>
+              <h3>Chart-based Dashboard</h3>
+              <p>See score trends and risk distribution through responsive Chart.js visualizations.</p>
+            </article>
+            <article class="card feature-card">
+              <i class="fa-solid fa-user-lock"></i>
+              <h3>Caregiver Authentication</h3>
+              <p>Register and log in with JWT-based protection for child records and assessments.</p>
+            </article>
+            <article class="card feature-card">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <h3>High-risk Alerts</h3>
+              <p>High-risk assessments trigger a visible UI alert and a console-based email simulation.</p>
+            </article>
+            <article class="card feature-card">
+              <i class="fa-solid fa-lightbulb"></i>
+              <h3>Simple Recommendations</h3>
+              <p>Recommendations adapt to the assessment outcome and highlight areas for attention.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft-section">
+        <div class="container split-grid">
+          <div class="card">
+            <span class="section-tag">Included modules</span>
+            <h2>Frontend modules</h2>
+            <ul class="clean-list">
+              <li>Responsive navigation and page layout</li>
+              <li>Assessment form with field validation</li>
+              <li>Dashboard with summary cards and charts</li>
+              <li>Login and registration interface</li>
+              <li>Contact and support section</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="section-tag">Backend modules</span>
+            <h2>Server capabilities</h2>
+            <ul class="clean-list">
+              <li>JWT authentication for secure API access</li>
+              <li>User, child, and assessment record handling</li>
+              <li>Mental health score and risk calculation</li>
+              <li>MongoDB-ready schema support</li>
+              <li>In-memory demo mode when MongoDB is not configured</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div>
+          <strong>CalmSteps</strong>
+          <p>Helping caregivers notice, understand, and respond with care.</p>
+        </div>
+        <p>&copy; <span id="year"></span> CalmSteps Prototype</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

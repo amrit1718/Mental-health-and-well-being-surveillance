@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | CalmSteps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="dashboard">
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container nav-bar">
+        <a href="index.html" class="brand">
+          <span class="brand-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+          <span>
+            <strong>CalmSteps</strong>
+            <small>Child Well-being Tracker</small>
+          </span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="features.html">Features</a>
+          <a href="assessment.html">Assessment</a>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="contact.html">Contact</a>
+          <a href="auth.html" class="button small auth-link">Login / Register</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="inner-page">
+      <section class="page-banner">
+        <div class="container">
+          <span class="section-tag">Tracking dashboard</span>
+          <h1>Monitor child records and progress over time</h1>
+          <p>Use the dashboard to add child profiles, review assessment history, see trends, and respond when support needs increase.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container dashboard-layout">
+          <aside class="dashboard-sidebar">
+            <div class="card">
+              <div class="sidebar-header">
+                <div>
+                  <h3>Your Children</h3>
+                  <p class="muted-text">Select a profile to view assessments</p>
+                </div>
+                <button class="button small secondary" id="logoutButton">Logout</button>
+              </div>
+              <div class="inline-note" id="dashboardAuthNotice"></div>
+              <div id="childrenList" class="child-list"></div>
+            </div>
+
+            <div class="card">
+              <h3>Add Child Profile</h3>
+              <form id="childForm" class="form-grid compact-form">
+                <div class="form-group">
+                  <label for="childName">Child Name</label>
+                  <input type="text" id="childName" name="name" placeholder="Enter child's name" required>
+                </div>
+                <div class="form-group">
+                  <label for="childAge">Age</label>
+                  <input type="number" id="childAge" name="age" min="3" max="18" placeholder="8" required>
+                </div>
+                <div class="form-group">
+                  <label for="childGender">Gender</label>
+                  <select id="childGender" name="gender" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="childSchool">School / Class</label>
+                  <input type="text" id="childSchool" name="school" placeholder="Sunrise Primary - Class 3">
+                </div>
+                <div class="form-group full-width">
+                  <label for="guardianNotes">Guardian Notes</label>
+                  <textarea id="guardianNotes" name="guardianNotes" rows="3" placeholder="Any ongoing concerns, routines, or support context..."></textarea>
+                </div>
+                <div class="form-actions full-width">
+                  <button type="submit" class="button primary">Save Profile</button>
+                  <div class="message-box" id="childMessage"></div>
+                </div>
+              </form>
+            </div>
+          </aside>
+
+          <div class="dashboard-main">
+            <div class="stats-grid">
+              <article class="card stat-card">
+                <small>Total Children</small>
+                <strong id="totalChildrenValue">0</strong>
+              </article>
+              <article class="card stat-card">
+                <small>Assessments</small>
+                <strong id="assessmentCountValue">0</strong>
+              </article>
+              <article class="card stat-card">
+                <small>Latest Score</small>
+                <strong id="latestScoreValue">--</strong>
+              </article>
+              <article class="card stat-card">
+                <small>Latest Risk</small>
+                <strong id="latestRiskValue">--</strong>
+              </article>
+            </div>
+
+            <div class="card overview-card" id="childOverview">
+              <span class="section-tag">Child overview</span>
+              <h3>Select a child profile to see details</h3>
+              <p class="muted-text" id="overviewText">The dashboard will show profile details, the latest recommendation, and risk trends.</p>
+            </div>
+
+            <div class="chart-grid">
+              <div class="card">
+                <div class="card-header">
+                  <h3>Well-being Score Trend</h3>
+                  <span class="badge">Chart.js</span>
+                </div>
+                <div class="chart-container">
+                  <canvas id="trendChart"></canvas>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h3>Risk Level Distribution</h3>
+                  <span class="badge">Live data</span>
+                </div>
+                <div class="chart-container">
+                  <canvas id="riskChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3>Assessment History</h3>
+                <a href="assessment.html" class="button small secondary">Add New Assessment</a>
+              </div>
+              <div id="historyList" class="history-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div>
+          <strong>CalmSteps</strong>
+          <p>Helping caregivers notice, understand, and respond with care.</p>
+        </div>
+        <p>&copy; <span id="year"></span> CalmSteps Prototype</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
